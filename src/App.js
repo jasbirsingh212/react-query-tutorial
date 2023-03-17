@@ -14,7 +14,8 @@ function App() {
     queryFn: () =>
       axios.get("https://pokeapi.co/api/v2/pokemon").then((res) => res.data),
     //refetchOnWindowFocus: false,
-    //staleTime:10000,
+    //staleTime:10000, in milli sec default 0
+    //cacheTime: 1000, in milli sec default 5 min
   });
 
   //if (isLoading) return <h1>Loading</h1>
