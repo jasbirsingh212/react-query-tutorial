@@ -13,7 +13,7 @@ function App() {
     queryKey: ["repoData"],
     queryFn: () =>
       axios.get("https://pokeapi.co/api/v2/pokemon").then((res) => res.data),
-    //refetchOnWindowFocus: false,
+    //refetchOnWindowFocus: false, default true
     //staleTime:10000, in milli sec default 0
     //cacheTime: 1000, in milli sec default 5 min
   });
