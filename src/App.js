@@ -10,7 +10,8 @@ function App() {
   // })
 
   const { isLoading, error, data, isFetching } = useQuery({
-    queryKey: ["repoData"],
+    queryKey: ["repoData"], //if we fetch data with same fetch key data will 
+    //only be fetched once
     queryFn: () =>
       axios.get("https://pokeapi.co/api/v2/pokemon").then((res) => res.data),
     //refetchOnWindowFocus: false, default true
