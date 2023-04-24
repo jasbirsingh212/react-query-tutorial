@@ -2,13 +2,14 @@ import { useState } from "react";
 
 import { PostDetail } from "./PostDetail";
 import { useQuery } from "react-query";
+import axios  from "axios";
 const maxPostPage = 10;
 
 async function fetchPosts() {
-  const response = await fetch(
+  const response = await axios.get(
     "https://jsonplaceholder.typicode.com/posts?_limit=10&_page=0"
   );
-  return response.json();
+  return response.data;
 }
 
 export function Posts() {
