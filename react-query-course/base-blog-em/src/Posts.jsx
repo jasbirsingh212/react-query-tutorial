@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { PostDetail } from "./PostDetail";
+import { useQuery } from "react-query";
 const maxPostPage = 10;
 
 async function fetchPosts() {
@@ -13,14 +14,17 @@ async function fetchPosts() {
 export function Posts() {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedPost, setSelectedPost] = useState(null);
+  const { data } = useQuery("posts", fetchPosts)
 
   // replace with useQuery
-  const data = [];
+  //const data = [];
+
+  if(!data) return "Loading ......."
 
   return (
     <>
       <ul>
-        {data.map((post) => (
+        {data?.map((post) => (
           <li
             key={post.id}
             className="post-title"
